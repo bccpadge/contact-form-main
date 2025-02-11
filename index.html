@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Frontend Mentor - Contact form" />
+  <meta name="keywords" content="HTML, CSS, JavaScript" />
+  <meta name="author" content="Rebecca Padgett" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Contact form</title>
+  <!-- !css -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- !JavaScript -->
+  <script src="./assets/js/script.js" defer></script>
+
+</head>
+
+<body>
+  <template data-js-template>
+    <header class="header__success">
+      <div class="header__success-icon">
+        <img src="./assets/images/icon-success-check.svg" alt="">
+        <h2 class="success__title">Message Sent!</h2>
+      </div>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </header>
+  </template>
+  <main data-js-main>
+    <form class="form" action="#" novalidate data-js-form>
+      <h1 class="form__title">Contact Us</h1>
+      <fieldset class="form__fieldset">
+        <legend class="visually-hidden">Contact Information</legend>
+        <div class="form__group">
+
+          <label class="form__label" for="first-name">
+            First Name
+            <span class="asterisk" aria-hidden="true">*</span>
+          </label>
+          <input class="form__input" type="text" id="first-name" name="first-name" required aria
+            describedby="first-name-error" autocomplete="given-name">
+          <p class="form__error" aria-live="polite" id="first-name-error"></p>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="last-name">
+            Last Name
+            <span class="asterisk" aria-hidden="true">*</span>
+          </label>
+          <input class="form__input" type="text" id="last-name" name="last-name" required
+            aria-describedby="last-name-error" autocomplete="family-name">
+          <p class="form__error" aria-live="polite" id="last-name-error"></p>
+        </div>
+      </fieldset>
+      <div class="form__group">
+        <label class="form__label" for="email-address">
+          Email Address
+          <span class="asterisk" aria-hidden="true">*</span>
+        </label>
+        <input class="form__input" type="email" id="email-address" name="email-address" required
+          aria-describedby="email-error" autocomplete="email">
+        <p class="form__error" id="email-error"></p>
+      </div>
+      <fieldset>
+        <legend class="visually-hidden">Pick your Query Type</legend>
+        <p class="form__label" for="query-type">Query Type
+          <span class="asterisk" aria-hidden="true">*</span>
+        </p>
+        <div class="form__fieldset form__fieldset-radio">
+          <div class="form__group-radio">
+            <label class="form__control" for="enquiry" tabindex="0" data-js-label>
+              <input class=" form__control-input " type="radio" value="enquiry" data-js-radio id="enquiry"
+                name="queryType" required aria-describedby="query-type-error">
+              General Enquiry
+            </label>
+          </div>
+          <div class="form__group-radio">
+            <label class="form__control" for="request" tabindex="0" data-js-label>
+              <input class="form__control-input" type="radio" value="request" data-js-radio id="request"
+                name="queryType" required aria-describedby="query-type-error">
+              Support Request
+            </label>
+          </div>
+        </div>
+        <p class="form__error" aria-live="polite" id="query-type-error"></p>
+      </fieldset>
+      <div class="form__group">
+        <label class="form__label" for="message">
+          Message
+          <span class="asterisk" aria-hidden="true">*</span>
+        </label>
+        <textarea class="form__textarea  w-full" data-js-textarea name="message" id="message" required
+          aria-describedby="message-error" autocomplete="on"></textarea>
+        <p class="form__error" aria-live="polite" id="message-error"></p>
+      </div>
+      <div class="form__group-checkbox">
+        <div class=" form__checkbox">
+          <input type="checkbox" class="form__checkbox-input" name="consent" id="consent">
+          <label for="consent" class="form__label">I hereby consent to being contacted by the team
+            <span class="asterisk" aria-hidden="true">*</span>
+          </label>
+        </div>
+        <p class="form__error" aria-live="polite" id="consent-error"></p>
+      </div>
+      <button class="form__button">Submit</button>
+    </form>
+  </main>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="https://www.linkedin.com/in/rebeccapadgett121/">Rebecca Padgett</a>.
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+@font-face {
+  font-family: "Karla";
+  src: url("../fonts/static/Karla-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Karla";
+  src: url("../fonts/static/Karla-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* !css variables */
+:root {
+  --clr-light-green: 148 38% 91%;
+  --clr-green: 169 82% 27%;
+  /* --clr-red: 0 66% 56%; */
+  --clr-red: 0 63% 28%;
+  --clr-white: 0 0% 100%;
+  --clr-medium-grey: 186 15% 59%;
+  --clr-dark-grey: 187 24% 22%;
+
+  --clr-bkg: hsl(var(--clr-light-green));
+  --clr-error: hsl(var(--clr-red));
+  --clr-heading: hsl(var(--clr-dark-grey));
+
+  --fw-bold: 700;
+  --ff-body: "Karla", sans-serif;
+
+  --accent-color: hsl(var(--clr-green));
+  accent-color: var(--accent-color);
+}
+
+/* reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  font-size: 100%;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-block-size: 100dvh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* !sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 2px dotted hsl(var(--clr-green));
+  outline-offset: 5px;
+}
+
+/* !genral styles */
+body {
+  font-family: var(--ff-body);
+  background-color: var(--clr-bkg);
+  display: grid;
+  place-content: center;
+  margin-inline: 1rem;
+  padding-block: 1.9375rem;
+}
+
+fieldset {
+  border: none;
+}
+
+:is(label, input, button) {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+/* !utility classes */
+.w-full {
+  width: 100%;
+}
+
+/* !form styles */
+.form {
+  background-color: hsl(var(--clr-white));
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+
+
+  @media (width >=48rem) {
+    padding: 2.5rem;
+  }
+
+  .form__title {
+    color: var(--clr-heading);
+  }
+}
+
+.form__fieldset {
+  display: grid;
+  gap: 1rem;
+
+  @media (width >=48rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.form__group {
+  position: relative;
+}
+
+.form__label {
+  color: hsl(var(--clr-dark-grey));
+  display: block;
+  margin-block-end: 0.5rem;
+}
+
+.asterisk {
+  color: var(--accent-color);
+}
+
+:is(.form__input, .form__textarea) {
+  padding: .75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--clr-medium-grey));
+  transition: all .3s ease;
+  width: 100%;
+
+  &:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 4px var(--accent-color);
+  }
+
+}
+
+/* ! form control - radio styles */
+.form__group-radio:has(.form__control-input:checked) {
+  background-color: hsl(var(--clr-light-green));
+}
+
+
+.form__control {
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 1rem;
+  border: 1px solid hsl(var(--clr-medium-grey));
+  color: hsl(var(--clr-dark-grey));
+  border-radius: 0.5rem;
+  padding: .75rem 1.5rem;
+}
+
+
+.form__control-input {
+  appearance: none;
+  background-color: hsl(var(--clr-white));
+  color: var(--accent-color);
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1px solid hsl(var(--clr-medium-grey));
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--accent-color);
+    background-color: CanvasText;
+  }
+}
+
+.form__control-input:checked::before {
+  transform: scale(1);
+}
+
+.form__control-input:focus {
+  outline: max(2px, 0.15em) solid var(--accent-color);
+  outline-offset: max(2px, 0.15em);
+}
+
+.form__textarea {
+  resize: none;
+
+  min-height: 15rem;
+
+  @media (width >=48rem) {
+    min-height: 6.5625rem;
+  }
+}
+
+/* !form control - checkbox styles */
+
+.form__checkbox {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.form__group-checkbox .form__control {
+  border: none;
+  padding: 0;
+}
+
+.form__group-checkbox .form__label {
+  margin-block-end: 0;
+}
+
+
+.form__checkbox-input {
+  appearance: none;
+  background-color: hsl(var(--clr-white));
+  margin: 0;
+  color: currentColor;
+  width: 1.125rem;
+  height: 1.125rem;
+  aspect-ratio: 1;
+  border: 0.15em solid hsl(var(--clr-medium-grey));
+  display: grid;
+  place-content: center;
+
+}
+
+.form__checkbox-input::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--accent-color);
+
+}
+
+.form__checkbox-input:checked::before {
+  transform: scale(1);
+}
+
+
+.form__button {
+  --clr-hover: 169 82% 7%;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: hsl(var(--clr-white));
+  padding: .75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 300ms ease;
+
+  &:hover {
+    background-color: hsl(var(--clr-hover));
+  }
+}
+
+/* !JavaScript styles - error styles */
+.form__error {
+  display: none;
+}
+
+.form__error.invalid {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--clr-error);
+  margin-block-start: 0.5rem;
+}
+
+.form__input.invalid,
+.form__control.invalid {
+  border-color: var(--clr-error);
+  background-image: url("../images/circle-exclamation-solid.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+}
+
+/* !JavaScript styles - success styles */
+.form__input.valid {
+  background-image: url("../images/circle-check-solid.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+}
+
+
+.header__success {
+  background-color: hsl(var(--clr-dark-grey));
+  color: hsl(var(--clr-white));
+  border-radius: 0.5rem;
+  max-width: 31.25rem;
+  animation: success .3s ease;
+  margin-inline: auto;
+  padding: 1.5rem;
+
+
+  .success__title {
+    font-size: 1.2rem;
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes success {
+  0% {
+    translate: 0 -1rem;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
+
+.header__success-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* !attribution */
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  position: fixed;
+  inset: auto auto 1rem 1rem;
+  display: none;
+
+  @media (width >=64rem) {
+    display: block;
+  }
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
