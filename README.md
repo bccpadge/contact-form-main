@@ -12,6 +12,7 @@ This is a solution to the [Contact form challenge on Frontend Mentor](https://ww
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [Suggestions](#suggestions)
 
 
 
@@ -38,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [GitHub Pages]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-contact-form-using-html-css-and-javascript-dRslRNmXJq)
+- Live Site URL: [GitHub Pages](https://bccpadge.github.io/contact-form-main/)
 
 ## My process
 
